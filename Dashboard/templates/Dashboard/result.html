@@ -1,0 +1,8 @@
+{% extends 'Dashboard/base.html' %}
+
+{% block title %}Result{% endblock %}
+{% block title2 %}Result{% endblock%}
+{% block body %}
+    {% load render_table from django_tables2 %}
+           {% render_table table %}
+{% endblock %}

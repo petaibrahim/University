@@ -1,0 +1,30 @@
+{% extends 'Dashboard/base.html' %}
+
+{% block title %}Session{% endblock %}
+{% block title2 %}Create Session{% endblock%}
+{% block body %}
+    <div>
+        <form role="form" method="post">
+              <div class="box-body">
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+        </form>
+    </div>
+    <div>
+        {%if object_list %}
+        <ul>
+            {% for sesid in object_list %}
+            <li><a href="{% url 'Dashboard:course'  %}">{{sesid.sesid}}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h3>You dont have sessions</h3>
+        {% endif %}
+    </div>
+
+{% endblock %}
