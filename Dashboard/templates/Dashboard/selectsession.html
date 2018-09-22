@@ -1,0 +1,17 @@
+{% extends 'Dashboard/base.html' %}
+{% block title %}Batch{% endblock %}
+{% block title2 %}Batch{% endblock%}
+{% block body %}
+     <div>
+        {%if object_list %}
+        <ul>
+            {% for sesid in object_list %}
+            <li><a href="{% url 'Dashboard:selectsession' sesid %}">{{sesid.sesid}}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h3>You dont have sessions</h3>
+        {% endif %}
+    </div>
+
+{% endblock %}

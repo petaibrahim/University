@@ -1,0 +1,18 @@
+{% extends 'Dashboard/base.html' %}
+{% block title %}Student List{% endblock %}
+{% block title2 %}Student List{% endblock%}
+{% block body %}
+<div class="box box-default">
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                  {% for student in object_list %}
+            <li><a href="{% url 'Dashboard:findstudentdetail' student.sid %}">{{student.sroll}} {{student.snam}}</a></li>
+            {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+{% endblock %}

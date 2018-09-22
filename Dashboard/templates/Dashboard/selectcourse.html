@@ -1,0 +1,18 @@
+{% extends 'Dashboard/base.html' %}
+{% block title %}Course{% endblock %}
+{% block title2 %}Course{% endblock%}
+{% block body %}
+<div class="box box-default">
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                  {% for course in object_list %}
+            <li><a href="{% url 'Dashboard:batchresult' course.course.cid %}">{{course.course}} {{course.teacher}}</a></li>
+            {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'Dashboard/base.html' %}
+{% block title %}Batch{% endblock %}
+{% block title2 %}Batch{% endblock%}
+{% block body %}
+<div class="box box-default">
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                  {% for batch in object_list %}
+            <li><a href="{% url 'Dashboard:findstudent' batch.0 %}">{{batch.0}}th</a></li>
+            {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+{% endblock %}

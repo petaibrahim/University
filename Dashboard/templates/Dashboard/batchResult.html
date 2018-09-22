@@ -1,0 +1,56 @@
+{% extends 'Dashboard/base.html' %}
+{% block title %}Result{% endblock %}
+{% block title2 %}Result{% endblock%}
+{% block body %}
+
+<div class="box-body">
+    <div class="box-body">
+        {% for result in object_list %}
+        {% if forloop.first %}
+        <p>Session: {{result.assign.reg.session}}</p>
+        <p>Batch: {{result.student.sbtc}}th</p>
+        <p>Course id: It-{{result.assign.reg.course}}</p>
+        <p>Course Name: It-{{result.assign.reg.course}}</p>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<div class="box-body">
+        <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="example1_length"><label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+            <thead>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Course id: activate to sort column descending" style="width: 306px;">Roll</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Class Test 1: activate to sort column ascending" style="width: 346px;">Class Test 1</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Class Test 2: activate to sort column ascending" style="width: 309px;">Class Test 2</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Class Test 3: activate to sort column ascending" style="width: 267px;">Class Test 3</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Class Test 3: activate to sort column ascending" style="width: 267px;">Class Test 4</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Assignment: activate to sort column ascending" style="width: 201px;">Assignment</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Class Test 3: activate to sort column ascending" style="width: 267px;">Average</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Attendance: activate to sort column ascending" style="width: 201px;">Attendance</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Attendance: activate to sort column ascending" style="width: 201px;">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for result in object_list %}
+            <tr role="row" class="odd">
+              <td class="sorting_1">{{result.student.sroll}}</td>
+              <td>{{result.ct1}}</td>
+              <td>{{result.ct2}}</td>
+              <td>{{result.ct3}}</td>
+              <td>{{result.ct4}}</td>
+              <td>{{result.asn}}</td>
+              <td>{{result.avg}}</td>
+              <td>{{result.atd}}</td>
+              <td>{{result.total}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

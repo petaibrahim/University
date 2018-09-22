@@ -1,11 +1,11 @@
-<html>
-<head></head>
-<body>
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-</body>
-</html>
+{% extends 'registration/base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-default">
+    {% csrf_token %}
+    {{ form.as_p}}
+</div>
+
+{% endblock %}

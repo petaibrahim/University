@@ -5,9 +5,9 @@ class TeacherTable(tables.Table):
     class Meta:
         model = Teacher
         template_name = 'django_tables2/bootstrap-responsive.html'
-        sequence = ('full_name', 'umob')
-        exclude = ('id', 'user')
-        ulogo = tables.TemplateColumn('<img src="{{Teacher.ulogo.url}}"> ')
+        sequence = ('user', 'mobile')
+        exclude = ('id',)
+        avatar = tables.TemplateColumn('<img src="{{Teacher.avatar.url}}"> ')
 
 class CourseTable(tables.Table):
     class Meta:

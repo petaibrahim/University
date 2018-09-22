@@ -15,5 +15,6 @@ admin.site.register(Session)
 admin.site.register(Student)
 admin.site.register(Teacher)
 admin.site.register(Registration)
+admin.site.register(Assignation)
 admin.site.register(Result)
 

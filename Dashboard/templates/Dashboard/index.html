@@ -1,6 +1,5 @@
-
 {% extends 'Dashboard/base.html' %}
-{% if user.is_authenticated %}
+
 {% block title %}Dashboard{% endblock %}
 {% block title2 %}Current Courses{% endblock%}
 {% block body %}
@@ -14,7 +13,4 @@
         <h3>You dont have courses</h3>
     {% endif %}
 {% endblock %}
-{% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">login</a>
-{% endif %}
+
