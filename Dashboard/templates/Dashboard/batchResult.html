@@ -7,7 +7,7 @@
     <div class="box-body">
         {% for result in object_list %}
         {% if forloop.first %}
-        <p>Session: {{result.assign.reg.session}}</p>
+        <p>Session: {{result.assign.reg.session.sesid}}</p>
         <p>Batch: {{result.student.sbtc}}th</p>
         <p>Course id: It-{{result.assign.reg.course}}</p>
         <p>Course Name: It-{{result.assign.reg.course}}</p>

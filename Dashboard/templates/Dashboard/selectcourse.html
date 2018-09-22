@@ -8,7 +8,7 @@
             <div class="col-md-6">
               <div class="form-group">
                   {% for course in object_list %}
-            <li><a href="{% url 'Dashboard:batchresult' course.course.cid %}">{{course.course}} {{course.teacher}}</a></li>
+            <li><a href="{% url 'Dashboard:selectresult' course.course.cid %}">{{course.course}} {{course.teacher}}</a></li>
             {% endfor %}
               </div>
             </div>

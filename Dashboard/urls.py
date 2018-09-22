@@ -14,8 +14,8 @@ urlpatterns = [
     path('profile/', views.update_profile, name='profile'),
 
     path('selectsession/', views.SelectSession.as_view(), name='selectsession'),
-    path('selectsession/<int:pk>/', views.SelectCourse.as_view(), name='selectsession'),
-    path('batchresult/<int:pk>/', views.BatchResult.as_view(), name='batchresult'),
+    path('selectsession/<int:pk>/', views.SelectCourse.as_view(), name='selectcourse'),
+    path('selectsession/<int:pk>/<int:pk_1>/', views.BatchResult.as_view(), name='selectresult'),
 
     path('findstudent/', views.FindStudent.as_view(), name='findstudent'),
     path('findstudent/<int:pk>/', views.FindStudentdetail.as_view(), name='findstudent'),

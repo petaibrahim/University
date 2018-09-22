@@ -149,5 +149,6 @@ class BatchResult(ListView):
     fields = ['all']
 
     def get_queryset(self):
-        result=Result.objects.filter(student=self.kwargs['pk'])
+        result=Result.objects.filter(asign__reg__id=self.kwargs['pk_1'])
         return result
+
