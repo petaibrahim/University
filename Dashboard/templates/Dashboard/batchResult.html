@@ -1,4 +1,5 @@
 {% extends 'Dashboard/base.html' %}
+{%load avgsum %}
 {% block title %}Result{% endblock %}
 {% block title2 %}Result{% endblock%}
 {% block body %}
@@ -39,9 +40,9 @@
               <td>{{result.ct3}}</td>
               <td>{{result.ct4}}</td>
               <td>{{result.asn}}</td>
-              <td>{{result.avg}}</td>
+              <td>{%best_avg result.ct1 result.ct2 result.ct3 result.ct4 %}</td>
               <td>{{result.atd}}</td>
-              <td>{{result.total}}</td>
+              <td>{%best_sum result.atd result.asn result.ct1 result.ct2 result.ct3 result.ct4 %}</td>
             </tr>
             {% endfor %}
             </tbody>

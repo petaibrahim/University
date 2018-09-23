@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserChangeForm
-from .models import Teacher, Registration, Student
+from .models import Teacher, Result
 from django.contrib.auth.models import User
 
 
@@ -22,6 +22,12 @@ class TeacherForm(forms.ModelForm):
         model = Teacher
         fields = ('user','mobile','avatar')
 
+
+class StudentResultForm(forms.ModelForm):
+    class Meta:
+        model = Result
+        fields = ('ct1', 'ct2', 'ct3', 'ct4', 'asn')
+
 # class FindStudentForm(forms.ModelForm):
 #     class Meta:
 #         model = Student
@@ -30,6 +36,8 @@ class TeacherForm(forms.ModelForm):
 #     class Meta:
 #         model = Student
 #         fields = ('sbtc',)
+
+
 
 
 

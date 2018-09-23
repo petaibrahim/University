@@ -8,7 +8,7 @@
             <div class="col-md-6">
               <div class="form-group">
                   {% for student in object_list %}
-            <li><a href="{% url 'Dashboard:findstudentdetail' student.sid %}">{{student.sroll}} {{student.snam}}</a></li>
+            <li><a href="{% url 'Dashboard:findstudentresult' pk=0 pk1=student.sid %}">{{student.sroll}} {{student.snam}}</a></li>
             {% endfor %}
               </div>
             </div>

@@ -6,7 +6,7 @@
         {%if object_list %}
         <ul>
             {% for sesid in object_list %}
-            <li><a href="{% url 'Dashboard:selectcourse' sesid %}">{{sesid.sesid}}</a></li>
+            <li><a href="{% url 'Dashboard:selectcourse' session_pk=sesid.sesid %}">{{sesid.sesid}}</a></li>
             {% endfor %}
         </ul>
         {% else %}

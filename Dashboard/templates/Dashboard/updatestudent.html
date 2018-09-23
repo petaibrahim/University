@@ -1,0 +1,13 @@
+{% extends 'Dashboard/base.html' %}
+{% block title %}Edit{% endblock %}
+{% block title2 %}Student{% endblock%}
+{% block body %}
+<div class="box-body">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Update">
+    </form>
+</div>
+{% endblock %}
+

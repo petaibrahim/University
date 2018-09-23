@@ -14,18 +14,16 @@ class CourseTable(tables.Table):
         model = Course
         template_name = 'django_tables2/bootstrap-responsive.html'
         sequence = ('cidn','cnam','cred')
-        exclude = ('cid')
+        exclude = ('cid',)
 
 class StudentTable(tables.Table):
     class Meta:
         model = Student
         template_name = 'django_tables2/bootstrap-responsive.html'
         sequence = ('sroll','snam','sreg','sbtc', 'sses')
-        exclude = ('sid')
+        exclude = ('sid',)
 
 class ResultTable(tables.Table):
     class Meta:
         model = Result
         template_name = 'django_tables2/bootstrap-responsive.html'
-        # sequence = ('sroll','snam','sreg','sbtc', 'sses')
-        # exclude = ('sid')

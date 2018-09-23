@@ -84,4 +84,7 @@ class Result(models.Model):
     total = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return str(self.asign.reg.session) + ' - ' + 'IT-' + str(self.asign.reg.course.cidn) + ' - ' + self.student.snam
+        return str(self.asign) + ' - ' + str(self.student)
+
+    def get_absolute_url(self):
+        return reverse('Dashboard:findstudentdetail', kwargs={"pk":1})

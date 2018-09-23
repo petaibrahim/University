@@ -19,7 +19,7 @@
         {%if object_list %}
         <ul>
             {% for sesid in object_list %}
-            <li><a href="{% url 'Dashboard:course'  %}">{{sesid.sesid}}</a></li>
+            <li><a href="{% url 'Dashboard:session'  %}">{{sesid.sesid}}</a></li>
             {% endfor %}
         </ul>
         {% else %}

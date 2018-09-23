@@ -1,16 +1,17 @@
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
 from django.views import generic
-from django.views.generic import ListView, CreateView, UpdateView, TemplateView
-from django.views.generic.edit import CreateView
+from django.views.generic import ListView,TemplateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django_tables2 import RequestConfig
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import CustomUserChangeForm, UserForm, TeacherForm
+from .forms import CustomUserChangeForm, UserForm, TeacherForm, StudentResultForm
 from .tables import *
 from django.db.models import Avg
+
 
 class Login(generic.CreateView):
     form_class = CustomUserChangeForm
@@ -111,16 +112,28 @@ class FindStudentdetail(ListView):
 @method_decorator(login_required, name='dispatch')
 class FindStudentresult(ListView):
     template_name = 'Dashboard/findStudentresult.html'
-    model = Result,Student,Registration,Assignation
+    model = Result
     fields = ['all']
 
     def get_queryset(self):
-        result=Result.objects.filter(student=self.kwargs['pk'])
+        result=Result.objects.filter(student=self.kwargs['pk1'])
         return result
 
-    def totals(self):
-        result = Result.objects.filter(student=self.kwargs['pk'])
-        avg = result.objects.get(ct1,ct2,ct3,ct4,).exclude(isnull=True)
+class UpdateStudent(UpdateView):
+    model = Result
+    template_name = 'Dashboard/updatestudent.html'
+    form_class =StudentResultForm
+
+    def get_object(self):
+        result = Result.objects.filter(id=self.kwargs['pk3'])
+        return get_object_or_404(result)
+
+    # def get_success_url(FindStudentresult):
+    #     return reverse_lazy('Dashboard:findstudentdetail', kwargs={'pk': FindStudentresult.kwargs['pk']})
+
+
+    def get_success_url(FindStudentresult):
+        return reverse_lazy('Dashboard:findstudent')
 
 
 @method_decorator(login_required, name='dispatch')
@@ -135,21 +148,21 @@ class SelectSession(ListView):
 @method_decorator(login_required, name='dispatch')
 class SelectCourse(ListView):
     template_name = 'Dashboard/selectcourse.html'
-    model = Course, Registration
+    model = Registration
     fields = ['all']
 
     def get_queryset(self):
-        course = Registration.objects.filter(session_id=self.kwargs['pk'])
+        course = Registration.objects.filter(session_id=self.kwargs['session_pk'])
         return course
 
 @method_decorator(login_required, name='dispatch')
 class BatchResult(ListView):
     template_name = 'Dashboard/batchResult.html'
-    model = Result,Student,Registration,Assignation
+    model = Result
     fields = ['all']
 
     def get_queryset(self):
-        pk_1 = self.kwargs['pk']
-        result=Result.objects.filter(asign__reg__id=pk_1)
+        result=Result.objects.filter(asign__reg_id=self.kwargs['pk_1'])
         return result
+
 
