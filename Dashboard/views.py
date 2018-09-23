@@ -164,5 +164,3 @@ class BatchResult(ListView):
     def get_queryset(self):
         result=Result.objects.filter(asign__reg_id=self.kwargs['pk_1'])
         return result
-
-
